@@ -1,97 +1,46 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>coder-app-name</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <title>Mba Jahit — Jasa Menjahit yang Datang ke Rumah</title>
+    <meta name="description" content="Mba Jahit menyediakan jasa menjahit dan permak pakaian yang datang langsung ke rumah Anda. Praktis, personal, dan rapi. Hubungi via WhatsApp." />
+    <meta name="keywords" content="jasa jahit, permak baju, tukang jahit, jahit datang ke rumah, jasa jahit panggilan, permak celana, ganti resleting" />
+    <meta property="og:title" content="Mba Jahit — Jasa Menjahit yang Datang ke Rumah" />
+    <meta property="og:description" content="Punya pakaian yang perlu diperbaiki? Mba Jahit datang ke rumah Anda. Hubungi via WhatsApp untuk konsultasi." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://mbajahit.com" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Mba Jahit",
+      "description": "Jasa menjahit dan permak pakaian yang datang langsung ke rumah pelanggan.",
+      "url": "https://mbajahit.com",
+      "telephone": "+6281234567890",
+      "priceRange": "$$",
+      "areaServed": "Area sekitar dan sekitarnya",
+      "serviceType": ["Permak Pakaian", "Perbaikan Jahitan", "Ganti Resleting", "Jahit Sesuai Kebutuhan"],
+      "openingHours": "Mo-Sa 08:00-17:00",
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceType": "Home Service",
+        "description": "Mba Jahit datang ke rumah pelanggan"
+      }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <style>
-      /* 内联样式确保主题色立即生效，避免闪烁 */
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-      }
-      html.light,
-      html.light body {
-        background-color: #ffffff !important;
-        color: #000000;
-      }
-      html.dark,
-      html.dark body {
-        background-color: #1a1a1a !important;
-        color: #ffffff;
-      }
+      html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
+      html { scroll-behavior: smooth; }
     </style>
-    <script>
-      // 在 React 加载前立即设置主题，避免闪烁
-      (function () {
-        const isInIframe = window.self !== window.top;
-
-        function applyThemeToDOM(theme) {
-          document.documentElement.classList.remove("light", "dark");
-          document.documentElement.classList.add(theme);
-          document.documentElement.setAttribute("data-theme", theme);
-        }
-
-        if (isInIframe) {
-          // 监听父窗口主动推送的主题消息
-          window.addEventListener("message", function (event) {
-            if (event.data && typeof event.data.theme === "string") {
-              const theme = event.data.theme;
-              if (theme === "light" || theme === "dark") {
-                applyThemeToDOM(theme);
-              }
-            }
-          });
-        } else {
-          // 非 iframe 环境，使用默认 light 主题
-          applyThemeToDOM("light");
-        }
-      })();
-    </script>
-      <script>
-      (function () {
-        if (window.self === window.top) return;
-        var reported = {};
-        window.addEventListener("error", function (event) {
-          // 资源加载失败的 error 事件没有 message，此处仅上报 JS 运行时错误
-          if (!event || !event.message) return;
-          var key =
-            event.message + "|" + (event.filename || "") + "|" + (event.lineno || 0);
-          if (reported[key]) return; // 相同错误只上报一次，避免渲染循环刷屏
-          reported[key] = true;
-          try {
-            window.parent.postMessage(
-              {
-                type: "sandbox-runtime-error",
-                payload: {
-                  message: String(event.message).slice(0, 500),
-                  filename: event.filename || "",
-                  lineno: event.lineno || 0,
-                  colno: event.colno || 0,
-                  stack:
-                    event.error && event.error.stack
-                      ? String(event.error.stack).slice(0, 2000)
-                      : ""
-                }
-              },
-              "*"
-            );
-          } catch (e) {
-            /* 上报失败不影响页面运行 */
-          }
-        });
-      })();
-    </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

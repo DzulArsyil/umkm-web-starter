@@ -1,1 +1,105 @@
 @import "tailwindcss";
+
+@theme {
+  --color-ivory: #FDFBF7;
+  --color-cream: #F5F0E8;
+  --color-beige: #E8DFD0;
+  --color-warm: #D4C5B0;
+  --color-tan: #B8A690;
+  --color-brown: #8B7355;
+  --color-charcoal: #3D3530;
+  --color-dark: #2A2420;
+  --color-accent: #C4956A;
+  --color-accent-dark: #A67B52;
+  --color-muted: #7A6F64;
+  --color-border: #E0D8CC;
+  --color-surface: #FAF7F2;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-tan);
+  border-radius: 3px;
+}
+
+/* Stitch divider */
+.stitch-divider {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-tan) 0px,
+    var(--color-tan) 8px,
+    transparent 8px,
+    transparent 14px
+  );
+  height: 2px;
+  opacity: 0.5;
+}
+
+/* Thread line animation */
+@keyframes thread-draw {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.thread-line {
+  animation: thread-draw 1.5s ease-out forwards;
+}
+
+/* Fade in animation */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .thread-line {
+    animation: none;
+    opacity: 1;
+    width: 100%;
+  }
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* WhatsApp button pulse */
+@keyframes pulse-soft {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
+}
+
+.whatsapp-pulse {
+  animation: pulse-soft 2s infinite;
+}
